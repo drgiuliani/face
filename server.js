@@ -28,5 +28,5 @@ var port = process.env.PORT || 1337;
 var url = require('url');
 http.createServer(function(req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end("my name is fing dan");
+  res.end("This is new text");
 }).listen(port);

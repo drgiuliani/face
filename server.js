@@ -10,11 +10,18 @@ var faceDetect = function(res) {
     client.face.detect({
     path: 'public/images/lebron.jpg',
     analyzesAge: true,
-    analyzesGender: true
+    analyzesGender: true,
+    returnFaceId: true
     }).then(function (response) {
         console.log(response[0]);
-        res.end('The age is: ' + response[0].faceAttributes.age);
+        res.end('The age is: ' + response[0].faceId);
         console.log('The gender is: ' + response[0].faceAttributes.gender);
+    });
+    
+    client.face.verify({
+       faces: ["a838bef2-551d-482a-b641-bf59483b5b4b", "c4e0b188-b5bc-4255-9c48-6e5f23d26091"] 
+    }).then(function (response) {
+       console.log(response); 
     });
 }
 
